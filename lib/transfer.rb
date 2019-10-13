@@ -49,7 +49,14 @@ class Transfer
   
     if @status == "complete"
       
+      @sender.balance = @sender.balance + @transfer_amount
+      @receiver.balance = @receiver.balance - @transfer_amount
+      @status = "reversed"
       
+    else
+      nil
+    end
+  end
   
   
 end
